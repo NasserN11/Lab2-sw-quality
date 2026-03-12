@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+
+public class QualityDimension {
+
+    // Private fields
+    private String name;
+    private String isoCode;
+    private int weight;
+
+    private ArrayList<Criterion> criteria;
+
+    // Constructor
+    QualityDimension(String name, String isoCode, int weight) {
+        this.name = name;
+        this.isoCode = isoCode;
+        this.weight = weight;
+
+        this.criteria = new ArrayList<>();
+    }
+
+    // Getters
+    public String getName() { return name; }
+    public String getIsoCode() { return isoCode; }
+    public int getWeight() { return weight; };
+
+    // Methods
+    public void addCriterion(Criterion c) {
+        criteria.add(c);
+    }
+
+    public double calculateDimensionScore() {
+        double dimensionScore;
+
+        // metricScore x metricWeight
+        double totalScoreTimesWeight = 0;
+        double totalWeight = 0;
+
+        int size = criteria.size();
+        for (int i = 0; i < size; i++) {
+            Criterion c = criteria.get(i);
+
+            double metricScore = c.calculateScore();
+
+            totalScoreTimesWeight += metricScore * c.getWeight();
+            totalWeight += c.getWeight();
+        }
+
+        if (totalWeight == 0) return 0;
+
+        dimensionScore = totalScoreTimesWeight / totalWeight;
+        dimensionScore = Math.round(dimensionScore * 2) / 2.0;
+        return dimensionScore;
+    }
+}
