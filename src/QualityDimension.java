@@ -51,4 +51,21 @@ public class QualityDimension {
         dimensionScore = Math.round(dimensionScore * 2) / 2.0;
         return dimensionScore;
     }
+
+    public String qualityLabel() {
+        double score = calculateDimensionScore();
+
+        if (score >= 4.5 && score <= 5.0)
+            return "Excellent Quality";
+        else if (score >= 3.5 && score < 4.4)
+            return "Good Quality";
+        else if (score >= 2.5 && score < 3.4)
+            return "Needs Improvement";
+        else
+            return "Poor Quality";
+    }
+
+    public double qualityGap() {
+        return 5.0 - calculateDimensionScore();
+    }
 }
