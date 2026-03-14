@@ -1,6 +1,6 @@
 # Software System Quality Evaluation (ISO/IEC 25010 & 25023)
 
-## Course" SENG 272 - Lab 2
+## Course: SENG 272 - Lab 2
 
 ## Description
 A Java measurement tool that evaluates software quality using ISO/IEC 25010 quality characteristics and ISO/IEC 250023 matrices.
