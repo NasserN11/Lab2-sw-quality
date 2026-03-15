@@ -22,6 +22,7 @@ public class QualityDimension {
     public String getName() { return name; }
     public String getIsoCode() { return isoCode; }
     public int getWeight() { return weight; };
+    public ArrayList<Criterion> getCriteria() { return this.criteria; }
 
     // Methods
     public void addCriterion(Criterion c) {
