@@ -23,6 +23,7 @@ public class SWSystem {
     public String getName() { return name; }
     public String getCategory() { return category; }
     public String getVersion() { return version; }
+    public ArrayList<QualityDimension> getDimensions() { return this.dimensions; }
 
     // Methods
     public void addQualityDimension(QualityDimension d) {
@@ -46,7 +47,7 @@ public class SWSystem {
         }
 
         double overallScore = totalScoreTimesWeight / totalWeight;
-        overallScore = Math.round(overallScore * 2) / 2.0;
+        overallScore = Math.round(overallScore * 10) / 10.0;
 
         return overallScore;
     }
@@ -81,7 +82,7 @@ public class SWSystem {
         // Header
         System.out.println("========================================");
         System.out.println("SOFTWARE QUALITY EVALUATION REPORT (ISO/IEC 25010)");
-        System.out.println("System: " + getName() + " " + getVersion() + " (" + getCategory() + ")");
+        System.out.println("System: " + getName() + " v" + getVersion() + " (" + getCategory() + ")");
         System.out.println("========================================");
         System.out.println();
 
@@ -109,7 +110,7 @@ public class SWSystem {
 
         // Gap analysis
         // Header
-        System.out.println("GAP ALALYSIS (ISO/IEC 25010)");
+        System.out.println("GAP ANALYSIS (ISO/IEC 25010)");
         System.out.println("========================================");
 
         QualityDimension weakest = findWeakestDimension();

@@ -31,8 +31,6 @@ public class SWSystemData {
 
         // ... add remaining quality characteristics
         s.addQualityDimension(createPerformanceEfficiency());
-        s.addQualityDimension(createUsability());
-        s.addQualityDimension(createSecurity());
         s.addQualityDimension(createMaintainability());
 
         return s;
